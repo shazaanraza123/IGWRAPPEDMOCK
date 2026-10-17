@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Reels rabbit hole card</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; position: relative; overflow: hidden; background: #FF7A00; color: #0B0B0D; font-family: 'Archivo', sans-serif">
+<div style="position: absolute; top: 0; left: 0; right: 0; z-index: 5; padding: 50px 10px 0 12px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; gap: 3px"><sc-for list="{{bars}}" as="b" hint-placeholder-count="13"><div style="flex: 1; height: 3px; border-radius: 2px; background: {{b.fill}}"></div></sc-for></div>
+<div style="display: flex; align-items: center; justify-content: space-between">
+<div style="display: flex; align-items: center; gap: 8px"><div style="width: 30px; height: 30px; border-radius: 50%; padding: 2px; box-sizing: border-box; background: #0B0B0D"><div style="width: 100%; height: 100%; border-radius: 50%; border: 2px solid #FF7A00; box-sizing: border-box; background: #0B0B0D; color: #FFFFFF; font-size: 11px; font-weight: 900; display: flex; align-items: center; justify-content: center">26</div></div><span style="font-size: 14px; font-weight: 800">Wrapped</span></div>
+<div style="display: flex">
+<button aria-label="About this card" style="width: 44px; height: 44px; background: none; border: none; color: #0B0B0D; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v6M12 7.5v.5"></path></svg></button>
+<button aria-label="Mute music" style="width: 44px; height: 44px; background: none; border: none; color: #0B0B0D; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 9.5v5h3.5L13 19V5L7.5 9.5z"></path><path d="M16.5 9a4.2 4.2 0 0 1 0 6"></path></svg></button>
+<button aria-label="Close" style="width: 44px; height: 44px; background: none; border: none; color: #0B0B0D; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 6l12 12M18 6 6 18"></path></svg></button>
+</div>
+</div>
+</div>
+<div style="position: absolute; left: 20px; right: 20px; top: 128px; display: flex; flex-direction: column; gap: 10px">
+<div style="font-size: 12px; font-weight: 800; letter-spacing: 1.4px">YOUR REELS</div>
+<h1 style="margin: 0; font-size: 62px; line-height: 0.86; font-weight: 900; font-stretch: 62%; text-transform: uppercase; letter-spacing: -1.2px">Down the rabbit hole.</h1>
+<div style="font-size: 15px; font-weight: 600">What kept you watching, by share of your Reels time.</div>
+</div>
+<div style="position: absolute; left: 20px; right: 20px; top: 318px; display: flex; flex-direction: column; gap: 10px">
+<sc-for list="{{cats}}" as="c" hint-placeholder-count="5">
+<div style="display: flex; flex-direction: column; gap: 5px">
+<div style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-size: 19px; font-weight: 900; font-stretch: 72%; text-transform: uppercase">{{c.name}}</span><span style="font-size: 15px; font-weight: 800">{{c.pct}}</span></div>
+<div style="height: 18px; border-radius: 4px; background: rgba(11,11,13,0.14)"><div style="height: 100%; width: {{c.width}}; border-radius: 4px; background: #0B0B0D"></div></div>
+</div>
+</sc-for>
+</div>
+<div style="position: absolute; left: 20px; top: 618px; transform: rotate(-3deg); display: flex; align-items: center; gap: 10px; background: #0B0B0D; color: #FFFFFF; border-radius: 14px; padding: 12px 16px">
+<svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FFD600" stroke-width="2.4"><path d="M4 18l6-6 4 4 6-8"></path><path d="M15 8h5v5"></path></svg>
+<span style="display: flex; flex-direction: column"><span style="font-size: 11px; font-weight: 800; letter-spacing: 1px; color: #FFD600">FASTEST RISING</span><span style="font-size: 20px; font-weight: 900; font-stretch: 72%; text-transform: uppercase">Ceramics, 4x since June</span></span>
+</div>
+<div style="position: absolute; left: 20px; right: 20px; top: 700px; font-size: 16px; font-weight: 700">And you sent 1,206 of them to friends.</div>
+<button style="position: absolute; left: 50%; bottom: 26px; transform: translateX(-50%); display: flex; align-items: center; gap: 8px; background: #0B0B0D; color: #FFFFFF; border: none; border-radius: 999px; padding: 0 22px 0 18px; height: 50px; font-family: inherit; font-size: 15px; font-weight: 800; white-space: nowrap"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><path d="M21.5 3.5 2.8 10.4l7.4 3 3 7.4z"></path><path d="M21.5 3.5 10.2 13.4"></path></svg>Share this story</button>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() {
+const bars = Array.from({ length: 13 }, (_, i) => ({ fill: i <= 4 ? '#0B0B0D' : 'rgba(11,11,13,0.25)' }));
+const cats = [
+{ name: 'Streetwear', pct: '31%' },
+{ name: 'Food in Chicago', pct: '22%' },
+{ name: 'Film photography', pct: '18%' },
+{ name: 'Interior design', pct: '12%' },
+{ name: 'Ceramics', pct: '9%' }
+].map((c) => ({ ...c, width: Math.round(parseInt(c.pct, 10) / 31 * 100) + '%' }));
+return { bars, cats };
+}
+}
+</script>
+</body>
+</html>

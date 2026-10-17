@@ -1,0 +1,14 @@
+---
+description: Supabase, engine and web landing conventions
+globs: supabase/**, data/**, web/**
+alwaysApply: false
+---
+
+# Backend conventions
+
+- All metric math lives in `supabase/functions/_shared/engine` as pure functions with Deno tests. No math in SQL views or the app.
+- Every metric carries `provenance`, `method`, `window_start`, `window_end`.
+- Engine output for maya must equal the payloads in `docs/05-BACKEND-SCHEMA.md` §5 exactly; keep a snapshot test for it.
+- RLS on every table. Service role key only inside Edge Functions and `seed.ts`.
+- Migrations are append-only in `supabase/migrations/`. Test with `supabase db reset`.
+- `web/` has exactly one public route, `/s/[slug]`, reading only `share_snapshots` where `revoked = false`.

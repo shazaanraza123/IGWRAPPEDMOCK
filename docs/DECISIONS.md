@@ -1,0 +1,110 @@
+# Decisions
+
+> This file wins. If it disagrees with `docs/01-PRD.md` through `docs/06-IMPLEMENTATION-PLAN.md`, `data/personas/maya.json`, `design/source/*.dc.html`, or a PNG, follow this file.
+> Recorded 2026-10-17 from the review of the kit.
+
+## 1. Chapters
+
+Five chapters drive behavior (music and the cube swipe):
+
+| Chapter | Cards |
+| --- | --- |
+| Memories | 1–2 |
+| Interests | 3–5 |
+| Moments | 6–7 |
+| People | 8–9 |
+| Identity | 10–13 |
+
+`Chapter` has five cases: `memories`, `interests`, `moments`, `people`, `identity`.
+
+"Memories → interests → people → identity" in the PRD is the narrative arc, not the enum.
+
+Eyebrow text is copy only. It is not a chapter id. Keep every eyebrow exactly as the HTML has it. Card 9 stays "YOUR HABITS".
+
+## 2. Photo ids
+
+`maya.json` ids are canonical:
+
+`tile-1` … `tile-5`, `m-01` … `m-11`, `main-character`, `year-card`, `story-0314`, `feed-chicago`, `maya-profile`, `friend-<name>`.
+
+On-disk renames: `tile-brunch` → `tile-1`, `tile-city` → `tile-2`, `tile-concert` → `tile-3`, `tile-hike` → `tile-4`, `tile-rooftop` → `tile-5`.
+
+Schema payloads use these ids. A missing photo renders as the gradient placeholder tile from the designs (the same treatment as card 2's PNG). A missing image never fails the screen.
+
+## 3. Card 13 in the player
+
+Render the Identity card (13a) full-bleed as the card itself. Its own content already keeps the bottom 100 pt clear. In that zone, stack:
+
+1. `SegmentedToggle` "Identity card / Numbers card" (the same component as the Hub's Personal/Creator toggle)
+2. The black "Share" pill
+3. A "Go to your Hub" text link
+
+Toggling swaps to 13b with a crossfade. Player chrome (progress bars and the top row) stays on top, as on the other cards.
+
+## 4. Chrome
+
+The HTML wins for pixels, with these normalizations:
+
+- The top row on every card is (i), mute, X. Replace the Pause button on cards 1, 2, and 11 with (i). Hide (i) on cards 1 and 11 (they have no metrics), leaving mute and X. Pause is hold-to-pause only, the way Instagram does it.
+- Bottom pill copy varies on purpose. "Share" when the pill sits next to a provenance line (cards 3, 6, 10). "Share this story" when the pill is standalone (cards 4, 5, 7, 9). Card 8 is the private lock pill and has no share. Cards 1 and 2 have no pill. They are shareable from the Hub tile and from the later (i) / share flow.
+- The HTML files may still draw a Pause button on cards 1, 2, and 11. This normalization wins over those files.
+
+## 5. Circle order
+
+The engine outputs the five handles sorted alphabetically: `dee.films`, `jules.mp`, `nico_k`, `sam.wav`, `tori.eats`. The PNG's order is illustrative. Positions and styling come from the PNG. Names come from the engine.
+
+## 6. Banner copy
+
+"About 3 min" is "About 2 min".
+
+## 7. Card 6 copy, and every numeric sentence
+
+The card 6 line is a template in the engine's copy layer: `"{comments} comments. Unhinged ones."` with `comments` = 418 from `maya.json`.
+
+Any sentence that contains a number lives in a `copy` object on that card's payload. Views display those strings verbatim. Views never assemble numbers into sentences.
+
+A big number drawn as its own figure, with a separate caption that does not contain the number, stays a structured field. That is not sentence assembly. Examples: the `47` on card 7 with the caption "replies in a day"; the `2,184` like bubble; the three reason columns on card 12 (`value` + `label`).
+
+Finished `copy` strings for maya are in `docs/05-BACKEND-SCHEMA.md` section 5. The Hub window line and the "N cards. …" summary are engine copy on the run, because the count changes for the teen and lite tiers.
+
+## 8. Reels 92%
+
+Intended. These are the top 5 shares of total Reels time. The other 8% is spread across smaller categories and is not a row on the card.
+
+Info-sheet method line: "Top 5 categories by share of your Reels watch time. Other categories: 8%."
+
+## 9. Undrawn screens
+
+Build undrawn screens from the design system, using the nearest designed pattern. No new visual ideas.
+
+| Screens | Pattern |
+| --- | --- |
+| S02 login, S03 building, S04 before we start, S05 edition picker | Ink background, card typography, Hub buttons and segmented controls |
+| S09 info sheet, S12 privacy, S11 remix | Share-sheet styling (`#121214` sheet, `ToggleChip`, `ToolRow`) |
+| S13, S14, S16 | Hub row patterns |
+| Web landing (S17) | The shared PNG centered on ink, one white "See yours" pill, one text link |
+
+Designs for S02 and S09 may arrive before Step 6. If they do, they override this section.
+
+Only the Bold remix skin (the current designs) is required until Step 20.
+
+"Push / profile menu" is out of scope. Entry is the home banner and the Wrapped tray bubble only. `design/app-flow-map.png` still draws that box; ignore it.
+
+`design/screens/S17-identity-card-in-story.png` is renamed `design/screens/story-posted-preview.png`. S17 means the web landing.
+
+## 10. Instagram references
+
+`design/reference/instagram/` has no screenshots yet. Steps 0–6 do not need them. They are added before Step 7. If they are still missing when Step 7 starts, stop and ask. Never draw the wordmark or glyph, and never invent Story motion.
+
+## 11. Small mismatches
+
+- The algorithm PNG shows the selected state as an example. The default state is all unselected. "More of this" becomes selected only after a tap.
+- Controls drawn at 36 pt keep that visual size. The hit area expands to 44 pt with `contentShape` / padding.
+- Navigation follows `docs/03-APPFLOW.md`. The `href` wiring inside `design/source/*.dc.html` is not navigation.
+
+## 12. Step 0 environment
+
+- Copy the kit into this repo. XcodeGen project. Local `supabase start` via Docker. Blank launch.
+- Install XcodeGen, the Supabase CLI, Deno, and Node if they are missing. Hosted Supabase and the Facebook App ID wait for the steps that use them.
+- There is no iPhone 16 simulator. Use the newest installed 6.1" non-Pro iPhone simulator and name it in the step report. Do not download simulator runtimes without asking.
+- If Docker is not installed, stop and say so. Do not install Docker or OrbStack.

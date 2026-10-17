@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>3AM club card</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; position: relative; overflow: hidden; background: #141B4D; color: #FFFFFF; font-family: 'Archivo', sans-serif">
+<div style="position: absolute; top: 0; left: 0; right: 0; z-index: 5; padding: 50px 10px 0 12px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; gap: 3px"><sc-for list="{{bars}}" as="b" hint-placeholder-count="13"><div style="flex: 1; height: 3px; border-radius: 2px; background: {{b.fill}}"></div></sc-for></div>
+<div style="display: flex; align-items: center; justify-content: space-between">
+<div style="display: flex; align-items: center; gap: 8px"><div style="width: 30px; height: 30px; border-radius: 50%; padding: 2px; box-sizing: border-box; background: #FFD600"><div style="width: 100%; height: 100%; border-radius: 50%; border: 2px solid #141B4D; box-sizing: border-box; background: #0B0B0D; font-size: 11px; font-weight: 900; display: flex; align-items: center; justify-content: center">26</div></div><span style="font-size: 14px; font-weight: 800">Wrapped</span></div>
+<div style="display: flex">
+<button aria-label="About this card" style="width: 44px; height: 44px; background: none; border: none; color: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v6M12 7.5v.5"></path></svg></button>
+<button aria-label="Mute music" style="width: 44px; height: 44px; background: none; border: none; color: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 9.5v5h3.5L13 19V5L7.5 9.5z"></path><path d="M16.5 9a4.2 4.2 0 0 1 0 6"></path></svg></button>
+<button aria-label="Close" style="width: 44px; height: 44px; background: none; border: none; color: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 6l12 12M18 6 6 18"></path></svg></button>
+</div>
+</div>
+</div>
+<div style="position: absolute; left: 20px; right: 20px; top: 128px; display: flex; flex-direction: column; gap: 10px">
+<div style="font-size: 12px; font-weight: 800; letter-spacing: 1.4px; color: #FFD600">YOUR HABITS</div>
+<h1 style="margin: 0; font-size: 60px; line-height: 0.86; font-weight: 900; font-stretch: 62%; text-transform: uppercase; letter-spacing: -1.2px">Welcome to the 3AM club.</h1>
+</div>
+<svg role="img" aria-label="A clock with the hours from midnight to 3:42 AM highlighted" width="250" height="250" viewBox="0 0 250 250" style="position: absolute; left: 70px; top: 292px">
+<circle cx="125" cy="125" r="112" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="18"></circle>
+<path d="M125 13 A112 112 0 0 1 229.6 165.1" fill="none" stroke="#FFD600" stroke-width="18" stroke-linecap="round"></path>
+<circle cx="125" cy="125" r="88" fill="#0B0F33"></circle>
+<sc-for list="{{ticks}}" as="t" hint-placeholder-count="12"><circle cx="{{t.x}}" cy="{{t.y}}" r="3" fill="{{t.fill}}"></circle></sc-for>
+<path d="M125 125 L72.7 142" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round"></path>
+<path d="M125 125 L179 145" stroke="#FFD600" stroke-width="5" stroke-linecap="round"></path>
+<circle cx="125" cy="125" r="7" fill="#FFD600"></circle>
+<path d="M188 52a20 20 0 1 0 14 34 16 16 0 0 1-14-34z" fill="#FFD600"></path>
+</svg>
+<div style="position: absolute; left: 20px; right: 20px; top: 568px; display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 13px; font-weight: 800; letter-spacing: 1.2px; color: #FFD600">LATEST SCROLL</span>
+<span style="font-size: 78px; line-height: 0.85; font-weight: 900; font-stretch: 62%; letter-spacing: -2px">3:42 AM</span>
+<span style="font-size: 16px; font-weight: 600; color: #E4E4E7">A Tuesday in May. We hope it was worth it.</span>
+</div>
+<button style="position: absolute; left: 50%; bottom: 26px; transform: translateX(-50%); display: flex; align-items: center; gap: 8px; background: #FFFFFF; color: #0B0B0D; border: none; border-radius: 999px; padding: 0 22px 0 18px; height: 50px; font-family: inherit; font-size: 15px; font-weight: 800; white-space: nowrap"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><path d="M21.5 3.5 2.8 10.4l7.4 3 3 7.4z"></path><path d="M21.5 3.5 10.2 13.4"></path></svg>Share this story</button>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() {
+const bars = Array.from({ length: 13 }, (_, i) => ({ fill: i <= 8 ? '#FFFFFF' : 'rgba(255,255,255,0.3)' }));
+const ticks = Array.from({ length: 12 }, (_, i) => {
+const a = (i / 12) * Math.PI * 2 - Math.PI / 2;
+return { x: (125 + Math.cos(a) * 74).toFixed(1), y: (125 + Math.sin(a) * 74).toFixed(1), fill: i <= 3 ? '#FFD600' : 'rgba(255,255,255,0.5)' };
+});
+return { bars, ticks };
+}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Numbers card</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; position: relative; overflow: hidden; background: #F7F3EC; color: #0B0B0D; font-family: 'Archivo', sans-serif">
+<div style="position: absolute; left: 0; right: 0; top: 0; height: 330px; background: #FF0069; overflow: hidden">
+<div style="position: absolute; left: 24px; right: 24px; top: 32px; display: flex; justify-content: space-between; font-size: 15px; font-weight: 800"><span>@maya.lens</span><span>MY 2026</span></div>
+<svg aria-hidden="true" width="230" height="230" viewBox="0 0 300 300" style="position: absolute; left: 80px; top: 76px">
+<defs><linearGradient id="yc" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFD600"></stop><stop offset="0.45" stop-color="#FF7A00"></stop><stop offset="1" stop-color="#7638FA"></stop></linearGradient></defs>
+<circle cx="150" cy="150" r="138" fill="none" stroke="url(#yc)" stroke-width="18" stroke-dasharray="63.3 9" transform="rotate(-90 150 150)"></circle>
+</svg>
+<div style="position: absolute; left: 103px; top: 99px; width: 184px; height: 184px; border-radius: 50%; overflow: hidden; border: 4px solid #FF0069; box-sizing: border-box; background: #3b1f3f"><img src="../photos/year-card.jpg" alt="Your photo of the year" style="display: block; width: 100%; height: 100%; object-fit: cover"></div>
+</div>
+<div style="position: absolute; left: 24px; right: 24px; top: 354px; font-size: 54px; line-height: 0.86; font-weight: 900; font-stretch: 62%; text-transform: uppercase; letter-spacing: -1px">2026 in numbers</div>
+<div style="position: absolute; left: 24px; right: 24px; top: 420px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 18px; row-gap: 16px">
+<sc-for list="{{nums}}" as="m" hint-placeholder-count="4">
+<div style="display: flex; flex-direction: column; gap: 2px; border-top: 3px solid #0B0B0D; padding-top: 8px">
+<span style="font-size: 54px; line-height: 0.9; font-weight: 900; font-stretch: 62%">{{m.value}}</span>
+<span style="font-size: 17px; font-weight: 800">{{m.label}}</span>
+</div>
+</sc-for>
+</div>
+<div style="position: absolute; left: 24px; right: 24px; top: 668px; display: flex; justify-content: space-between; align-items: baseline; border-top: 3px solid #0B0B0D; padding-top: 10px">
+<span style="font-size: 17px; font-weight: 800">Top interest</span>
+<span style="font-size: 30px; font-weight: 900; font-stretch: 62%; text-transform: uppercase">Streetwear</span>
+</div>
+<div style="position: absolute; left: 24px; right: 24px; bottom: 30px; display: flex; justify-content: space-between; align-items: center">
+<div style="display: flex; align-items: center; gap: 8px"><div style="width: 34px; height: 34px; border-radius: 50%; padding: 2.5px; box-sizing: border-box; background: conic-gradient(from 200deg, #FFD600, #FF7A00, #FF0069, #D300C5, #7638FA, #FFD600)"><div style="width: 100%; height: 100%; border-radius: 50%; border: 2px solid #F7F3EC; box-sizing: border-box; background: #0B0B0D; color: #FFFFFF; font-size: 11px; font-weight: 900; display: flex; align-items: center; justify-content: center">26</div></div><span style="font-size: 16px; font-weight: 900">Wrapped</span></div>
+<span style="font-size: 14px; font-weight: 800; letter-spacing: 0.6px">INSTAGRAM.COM/WRAPPED</span>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() {
+const nums = [
+{ value: '412', label: 'Stories' },
+{ value: '38', label: 'Posts' },
+{ value: '1,206', label: 'Reels sent' },
+{ value: '1,214', label: 'Saves' }
+];
+return { nums };
+}
+}
+</script>
+</body>
+</html>
