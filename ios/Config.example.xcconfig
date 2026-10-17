@@ -1,0 +1,6 @@
+// Copy this file to ios/Config.xcconfig. That copy is gitignored.
+// Leave the values empty until the step that needs them.
+SUPABASE_URL =
+SUPABASE_ANON_KEY =
+FACEBOOK_APP_ID =
+SHARE_BASE_URL =

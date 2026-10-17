@@ -1,0 +1,23 @@
+# Secrets and user-supplied assets
+ios/Config.xcconfig
+ios/IGWrapped/Resources/Brand/
+ios/IGWrapped/Resources/Audio/
+
+# Xcode
+DerivedData/
+build/
+*.xcuserstate
+xcuserdata/
+*.xcscmblueprint
+
+# Supabase local
+supabase/.branches/
+supabase/.temp/
+supabase/.env
+
+# Web
+web/node_modules/
+web/.next/
+
+# OS
+.DS_Store
